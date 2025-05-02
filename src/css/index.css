@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+body {
+  font-family: "PT Sans", sans-serif;
+}
+
+.container {
+  max-width: 1180px;
+  padding-top: 12px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
