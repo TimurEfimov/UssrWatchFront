@@ -6,7 +6,15 @@ body {
 
 .container {
   max-width: 1180px;
-  padding-top: 12px;
   box-sizing: border-box;
   margin: 0 auto;
+}
+
+.background {
+  background-image: url("/background-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+  background-position: center, right bottom;
+  /* filter: brightness(0.6); */
 }
