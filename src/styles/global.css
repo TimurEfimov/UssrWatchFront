@@ -5,15 +5,56 @@ body {
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 1480px;
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 .background {
-  background-image: url("../assets/backgrounds/background-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 90vh;
   background-position: center, right bottom;
+}
+
+.construction {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+}
+
+.parallax-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.button {
+  max-width: 160px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: oklch(57.7% 0.245 27.325);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: oklch(50.5% 0.213 27.518);
 }

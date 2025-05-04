@@ -7,24 +7,25 @@ import userLogo from "../assets/images/user.png";
 
 import { Search } from "../components/Search";
 
-// const list = [
-//   {
-//     title: "Главная",
-//     path: "/",
-//   },
-//   {
-//     title: "Часы",
-//     path: "/watches",
-//   },
-//   {
-//     title: "Механизмы",
-//     path: "/mechanisms",
-//   },
-//   {
-//     title: "FAQ",
-//     path: "/faq",
-//   },
-// ];
+const list = [
+  {
+    title: "Услуги",
+    ways: [
+      {
+        name: "Избранные модели",
+        path: "wishlist",
+      },
+      {
+        name: "Частые вопросы",
+        path: "faq",
+      },
+      {
+        name: "Обратная связь",
+        path: "tg",
+      },
+    ],
+  },
+];
 
 export const MainLayout: React.FC = () => {
   return (
@@ -55,6 +56,21 @@ export const MainLayout: React.FC = () => {
       <main>
         <Outlet />
       </main>
+
+      <footer className="container p-16 construction">
+        {list.map((item) => (
+          <div>
+            <h1 className="text-2xl font-bold">{item.title}</h1>
+            <ul>
+              {item.ways.map((way) => (
+                <li className="opacity-70 text-lg">
+                  <Link to={way.path}>{way.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </footer>
     </>
   );
 };
