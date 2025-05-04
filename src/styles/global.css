@@ -11,10 +11,9 @@ body {
 }
 
 .background {
-  background-image: url("/background-1.jpg");
+  background-image: url("../assets/backgrounds/background-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 90vh;
   background-position: center, right bottom;
-  /* filter: brightness(0.6); */
 }

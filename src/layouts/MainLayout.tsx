@@ -1,27 +1,30 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/images/logo.png";
+import wishlist from "../assets/images/wishlist.svg";
+import userLogo from "../assets/images/user.png";
+
 import { Search } from "../components/Search";
 
-const list = [
-  {
-    title: "Главная",
-    path: "/",
-  },
-  {
-    title: "Часы",
-    path: "/watches",
-  },
-  {
-    title: "Механизмы",
-    path: "/mechanisms",
-  },
-  {
-    title: "FAQ",
-    path: "/faq",
-  },
-];
+// const list = [
+//   {
+//     title: "Главная",
+//     path: "/",
+//   },
+//   {
+//     title: "Часы",
+//     path: "/watches",
+//   },
+//   {
+//     title: "Механизмы",
+//     path: "/mechanisms",
+//   },
+//   {
+//     title: "FAQ",
+//     path: "/faq",
+//   },
+// ];
 
 export const MainLayout: React.FC = () => {
   return (
@@ -38,11 +41,11 @@ export const MainLayout: React.FC = () => {
 
             <div className="flex items-center gap-4">
               <Link to="/userId" className="flex items-center gap-1">
-                <img src="/user.png" alt="User logo" className="size-12" />
+                <img src={userLogo} alt="User logo" className="size-12" />
                 <h2 className="text-lg font-bold">Artem</h2>
               </Link>
               <Link to="/wishlist">
-                <img src="/wishlist.svg" alt="wishlist" className="size-8" />
+                <img src={wishlist} alt="wishlist" className="size-8" />
               </Link>
             </div>
           </div>

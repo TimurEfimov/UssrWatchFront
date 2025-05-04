@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Home: React.FC = () => {
+export const Welcome: React.FC = () => {
   return (
     <div className="background">
       <div className="bg-black/60 flex justify-center items-center flex-col h-[758px] gap-3">
