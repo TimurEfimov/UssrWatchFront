@@ -58,12 +58,12 @@ export const MainLayout: React.FC = () => {
       </main>
 
       <footer className="container p-16 construction">
-        {list.map((item) => (
-          <div>
+        {list.map((item, i) => (
+          <div key={i}>
             <h1 className="text-2xl font-bold">{item.title}</h1>
             <ul>
               {item.ways.map((way) => (
-                <li className="opacity-70 text-lg">
+                <li className="opacity-70 text-lg" key={way.path}>
                   <Link to={way.path}>{way.name}</Link>
                 </li>
               ))}

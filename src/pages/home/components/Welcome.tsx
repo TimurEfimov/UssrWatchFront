@@ -16,7 +16,7 @@ export const Welcome: React.FC = () => {
         <p className="text-xl text-gray-200 mb-2">
           Механизмы, пережившие эпохи. Найдёте ли вы свои?
         </p>
-        <Link to="/catalog" className="button">
+        <Link to="/watches" className="button">
           В каталог
         </Link>
       </div>

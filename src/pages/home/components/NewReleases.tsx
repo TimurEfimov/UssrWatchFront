@@ -14,7 +14,7 @@ export const NewReleases: React.FC = () => {
             стать частью вашей истории. В коллекции — редкие модели 60–80-х
             годов в идеальном состоянии.
           </p>
-          <Link to="/catalog" className="button">
+          <Link to="/watches" className="button">
             К новинкам →
           </Link>
         </div>

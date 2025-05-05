@@ -17,7 +17,7 @@ export const Trending: React.FC = () => {
           Безупречный ход, узнаваемый дизайн. Часы, которые остаются актуальными
           десятилетиями.
         </p>
-        <Link to="/catalog" className="button">
+        <Link to="/watches" className="button">
           К популярным
         </Link>
       </div>
