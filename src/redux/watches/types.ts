@@ -1,3 +1,5 @@
+import { Status } from "../../types/status";
+
 export type Watch = {
   id: string;
   folder: string;
@@ -12,12 +14,6 @@ export type Watch = {
 export type SearchWatchParams = {
   sortBy: string;
 };
-
-export enum Status {
-  LOADING = "loading",
-  SUCCESS = "completed",
-  ERROR = "error",
-}
 
 export type WatchSliceState = {
   items: Watch[];

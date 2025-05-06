@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { useAppDispatch } from "../redux/store";
 import { fetchWatches } from "../redux/watches/api";
+import { fetchFilters } from "../redux/filters/api";
 
 import { MainLayout } from "../layouts/MainLayout";
 import { Home } from "../pages/home/Home";
@@ -10,16 +11,15 @@ import { Watches } from "../pages/watches/Watches";
 
 export const App: React.FC = () => {
   const dispatch = useAppDispatch();
-
-  const getPizzas = async () => {
-    const sortBy = "id";
-
-    dispatch(fetchWatches({ sortBy }));
-  };
+  const sortBy = "id";
 
   React.useEffect(() => {
-    getPizzas();
-  }, []);
+    dispatch(fetchWatches({ sortBy }));
+  }, [dispatch]);
+
+  React.useEffect(() => {
+    dispatch(fetchFilters());
+  }, [dispatch]);
 
   return (
     <div>

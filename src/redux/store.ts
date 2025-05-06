@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 
-import watch from "./watches/slice";
+import watches from "./watches/slice";
+import filters from "./filters/slice";
 
 export const store = configureStore({
   reducer: {
-    watch,
+    watches,
+    filters,
   },
 });
 

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchWatches } from "./api";
-import { Watch, Status, WatchSliceState } from "./types";
+import { Watch, WatchSliceState } from "./types";
+import { Status } from "../../types/status";
 
 const initialState: WatchSliceState = {
   items: [],
