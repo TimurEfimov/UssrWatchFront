@@ -7,16 +7,21 @@ export type Obj = {
 
 export type Filters = {
   all_count_watch: number;
-  all_count_mechanism: number;
-  factory: Obj[];
-  brand: Obj[];
-  case_material: Obj[];
-  function: Obj[];
-  mechanism_type: Obj[];
-  gender: Obj[];
+  factory: { title: string; items: Obj[] };
+  brand: { title: string; items: Obj[] };
+  case_material: { title: string; items: Obj[] };
+  function: { title: string; items: Obj[] };
+  mechanism_type: { title: string; items: Obj[] };
+  gender: { title: string; items: Obj[] };
 };
 
 export type FiltersSliceState = {
   filters: Filters;
   status: Status;
+  factories: Obj[];
+  brands: Obj[];
+  materials: Obj[];
+  winding: Obj[];
+  mechanisms: Obj[];
+  gender: string;
 };
