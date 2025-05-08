@@ -18,10 +18,10 @@ export type Filters = {
 export type FiltersSliceState = {
   filters: Filters;
   status: Status;
-  factories: Obj[];
-  brands: Obj[];
-  materials: Obj[];
-  winding: Obj[];
-  mechanisms: Obj[];
+  factory: Obj[];
+  brand: Obj[];
+  case_material: Obj[];
+  function: Obj[];
+  mechanism_type: Obj[];
   gender: string;
 };

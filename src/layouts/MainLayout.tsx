@@ -55,7 +55,7 @@ export const MainLayout: React.FC = () => {
         </div>
       </header>
 
-      <main className="mx-4">
+      <main>
         <Outlet />
       </main>
 

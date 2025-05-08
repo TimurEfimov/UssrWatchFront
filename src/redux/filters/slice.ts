@@ -7,103 +7,64 @@ import { DEFAULT_FILTERS } from "./consts";
 const initialState: FiltersSliceState = {
   filters: DEFAULT_FILTERS,
   status: Status.LOADING,
-  factories: [],
-  brands: [],
-  materials: [],
-  winding: [],
-  mechanisms: [],
+  factory: [],
+  brand: [],
+  case_material: [],
+  function: [],
+  mechanism_type: [],
   gender: "",
+};
+
+// Универсальный редьюсер для обработки фильтров
+const toggleFilterItem = <T extends Obj>(array: T[], item: T): T[] => {
+  const exists = array.some((i) => i.id === item.id);
+  return exists ? array.filter((i) => i.id !== item.id) : [...array, item];
 };
 
 const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    setFactories(state, action: PayloadAction<Obj>) {
-      const exists = state.factories.find(
-        (item) => item.id === action.payload.id
-      );
-      if (!exists) {
-        state.factories = [...state.factories, action.payload];
-      } else {
-        state.factories = state.factories.filter(
-          (item) => item.id !== action.payload.id
-        );
+    toggleFilter: (
+      state,
+      action: PayloadAction<{ key: keyof FiltersSliceState; item: Obj }>
+    ) => {
+      const { key, item } = action.payload;
+
+      if (Array.isArray(state[key])) {
+        state[key] = toggleFilterItem(state[key] as Obj[], item) as any;
       }
     },
-    setBrands(state, action: PayloadAction<Obj>) {
-      const exists = state.brands.find((item) => item.id === action.payload.id);
-      if (!exists) {
-        state.brands = [...state.brands, action.payload];
-      } else {
-        state.brands = state.brands.filter(
-          (item) => item.id !== action.payload.id
-        );
-      }
+
+    setGender: (state, action: PayloadAction<string>) => {
+      state.gender = action.payload === state.gender ? "" : action.payload;
     },
-    setMaterials(state, action: PayloadAction<Obj>) {
-      const exists = state.materials.find(
-        (item) => item.id === action.payload.id
-      );
-      if (!exists) {
-        state.materials = [...state.materials, action.payload];
-      } else {
-        state.materials = state.materials.filter(
-          (item) => item.id !== action.payload.id
-        );
-      }
-    },
-    setWinding(state, action: PayloadAction<Obj>) {
-      const exists = state.winding.find(
-        (item) => item.id === action.payload.id
-      );
-      if (!exists) {
-        state.winding = [...state.winding, action.payload];
-      } else {
-        state.winding = state.winding.filter(
-          (item) => item.id !== action.payload.id
-        );
-      }
-    },
-    setMechanisms(state, action: PayloadAction<Obj>) {
-      const exists = state.mechanisms.find(
-        (item) => item.id === action.payload.id
-      );
-      if (!exists) {
-        state.mechanisms = [...state.mechanisms, action.payload];
-      } else {
-        state.mechanisms = state.mechanisms.filter(
-          (item) => item.id !== action.payload.id
-        );
-      }
-    },
-    setGender(state, action: PayloadAction<string>) {
-      state.gender = action.payload;
+
+    resetFilters: (state) => {
+      state.factory = [];
+      state.brand = [];
+      state.case_material = [];
+      state.function = [];
+      state.mechanism_type = [];
+      state.gender = "";
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchFilters.pending, (state) => {
-      state.status = Status.LOADING;
-      state.filters = DEFAULT_FILTERS;
-    });
-    builder.addCase(fetchFilters.fulfilled, (state, action) => {
-      state.status = Status.SUCCESS;
-      state.filters = action.payload;
-    });
-    builder.addCase(fetchFilters.rejected, (state) => {
-      state.status = Status.ERROR;
-      state.filters = DEFAULT_FILTERS;
-    });
+    builder
+      .addCase(fetchFilters.pending, (state) => {
+        state.status = Status.LOADING;
+        state.filters = DEFAULT_FILTERS;
+      })
+      .addCase(fetchFilters.fulfilled, (state, action) => {
+        state.status = Status.SUCCESS;
+        state.filters = action.payload;
+      })
+      .addCase(fetchFilters.rejected, (state) => {
+        state.status = Status.ERROR;
+        state.filters = DEFAULT_FILTERS;
+      });
   },
 });
 
-export const {
-  setFactories,
-  setBrands,
-  setGender,
-  setMaterials,
-  setMechanisms,
-  setWinding,
-} = filterSlice.actions;
-
+export const { toggleFilter, setGender, resetFilters } = filterSlice.actions;
 export default filterSlice.reducer;
