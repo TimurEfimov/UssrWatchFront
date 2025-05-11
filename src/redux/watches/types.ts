@@ -1,14 +1,15 @@
 import { Status } from "../../types/status";
 
 export type Watch = {
-  id: string;
+  id: number;
   folder: string;
   start_release: number;
   end_release: number;
   gender: string;
+  mechanism: string;
   case_material: string;
   brand: string;
-  alias: string[];
+  aliases: string[];
 };
 
 export type SearchWatchParams = {

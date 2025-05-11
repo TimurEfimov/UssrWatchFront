@@ -22,7 +22,7 @@ export const Search: React.FC = () => {
         type="search"
         id="search"
         className="block w-2xs h-3 p-4 ps-8 text-sm text-gray-900 border-none rounded-lg bg-gray-50"
-        placeholder="Поиск часов, кода, механизма"
+        placeholder="Поиск часов, кода"
         required
       />
     </div>

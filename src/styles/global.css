@@ -20,7 +20,6 @@ body {
 .construction {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
 }
@@ -29,6 +28,16 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
+}
+
+.usualFilter {
+  position: relative;
+  transform: none;
+}
+
+.endFilter {
+  position: fixed;
+  transform: translate3d(0px, 0px, 0px);
 }
 
 .parallax-bg {
