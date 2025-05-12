@@ -30,16 +30,6 @@ body {
   overflow: hidden;
 }
 
-.usualFilter {
-  position: relative;
-  transform: none;
-}
-
-.endFilter {
-  position: fixed;
-  transform: translate3d(0px, 0px, 0px);
-}
-
 .parallax-bg {
   position: absolute;
   top: 0;

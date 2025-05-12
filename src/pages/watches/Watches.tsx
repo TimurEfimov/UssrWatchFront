@@ -11,7 +11,7 @@ export const Watches: React.FC = () => {
   return (
     <div className="mx-4">
       <div className="container pt-12 flex flex-row gap-6">
-        <div className="usualFilter">
+        <div>
           <Filter />
         </div>
 

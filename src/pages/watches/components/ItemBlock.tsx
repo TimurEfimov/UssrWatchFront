@@ -18,12 +18,10 @@ export const ItemBlock: React.FC<Props> = ({
   mechanism,
   case_material,
 }) => {
-  if (!mechanism) {
-    return;
-  }
   return (
     <Link
-      to={`watch/${id}`}
+      to={`/watch/${id}`}
+      target="_blank"
       className="bg-[#FFFAFA] w-[236px] rounded-2xl p-1 flex flex-col gap-1 transition hover:-translate-y-2 hover:shadow-xl"
     >
       <img
@@ -35,14 +33,14 @@ export const ItemBlock: React.FC<Props> = ({
         <div className="flex flex-wrap gap-1">
           {aliases.map((alias, i) => (
             <h3
-              key={i}
+              key={`alias-${i}`}
               className="font-bold text-gray-600 first-letter:uppercase bg-gray-300 rounded-lg px-2 py-1"
             >
               {alias}
             </h3>
           ))}
         </div>
-        <p className="font-bold text-lg opacity-80 first-letter:uppercase my-1">
+        <p className="font-bold text-lg first-letter:uppercase my-1">
           {brand}, {mechanism}, {case_material}
         </p>
       </div>

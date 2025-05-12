@@ -15,7 +15,6 @@ const initialState: FiltersSliceState = {
   gender: "",
 };
 
-// Универсальный редьюсер для обработки фильтров
 const toggleFilterItem = <T extends Obj>(array: T[], item: T): T[] => {
   const exists = array.some((i) => i.id === item.id);
   return exists ? array.filter((i) => i.id !== item.id) : [...array, item];
@@ -58,6 +57,7 @@ const filterSlice = createSlice({
       .addCase(fetchFilters.fulfilled, (state, action) => {
         state.status = Status.SUCCESS;
         state.filters = action.payload;
+        console.log(action.payload);
       })
       .addCase(fetchFilters.rejected, (state) => {
         state.status = Status.ERROR;
