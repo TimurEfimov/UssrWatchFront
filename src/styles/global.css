@@ -43,7 +43,7 @@ body {
 }
 
 .button {
-  max-width: 160px;
+  max-width: 170px;
   text-align: center;
   white-space: nowrap;
   background-color: oklch(57.7% 0.245 27.325);

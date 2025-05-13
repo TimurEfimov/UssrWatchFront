@@ -21,7 +21,7 @@ export const ItemBlock: React.FC<Props> = ({
   return (
     <Link
       to={`/watch/${id}`}
-      target="_blank"
+      // target="_blank"
       className="bg-[#FFFAFA] w-[236px] rounded-2xl p-1 flex flex-col gap-1 transition hover:-translate-y-2 hover:shadow-xl"
     >
       <img

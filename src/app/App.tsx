@@ -6,9 +6,15 @@ import { fetchWatches } from "../redux/watches/api";
 import { fetchFilters } from "../redux/filters/api";
 
 import { MainLayout } from "../layouts/MainLayout";
-import { Home } from "../pages/home/Home";
-import { Watches } from "../pages/watches/Watches";
-import { InfoWatch } from "../pages/infoWatch/InfoWatch";
+import {
+  Faq,
+  Home,
+  InfoWatch,
+  Memo,
+  NotFound,
+  Support,
+  Watches,
+} from "../pages";
 
 export const App: React.FC = () => {
   const location = useLocation();
@@ -31,6 +37,10 @@ export const App: React.FC = () => {
           <Route index element={<Home />} />
           <Route path="/watches" element={<Watches />} />
           <Route path="/watch/:id" element={<InfoWatch />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/memo" element={<Memo />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </div>

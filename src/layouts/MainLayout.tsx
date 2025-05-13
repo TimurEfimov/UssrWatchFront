@@ -2,8 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 import logo from "../assets/images/logo.png";
-import wishlist from "../assets/images/wishlist.svg";
-import userLogo from "../assets/images/user.png";
+import memo from "../assets/images/memo.svg";
 
 import { Search } from "../components/Search";
 
@@ -36,18 +35,14 @@ export const MainLayout: React.FC = () => {
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center gap-2">
                 <img src={logo} alt="logo" className="size-12" />
-                <h1 className="text-2xl font-bold">Soviet Watches</h1>
+                <h1 className="text-2xl font-bold">Ussr Watch</h1>
               </Link>
 
               <Search />
 
               <div className="flex items-center gap-4">
-                <Link to="/userId" className="flex items-center gap-1">
-                  <img src={userLogo} alt="User logo" className="size-12" />
-                  <h2 className="text-lg font-bold">Artem</h2>
-                </Link>
-                <Link to="/wishlist">
-                  <img src={wishlist} alt="wishlist" className="size-8" />
+                <Link to="/memo">
+                  <img src={memo} alt="Advices" />
                 </Link>
               </div>
             </div>

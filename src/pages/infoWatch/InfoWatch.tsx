@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 interface WatchById {
   id: number;
-  folder: string;
+  folder: string[];
   description: string;
   start_release: number;
   end_release: number;
@@ -26,7 +26,19 @@ export const InfoWatch: React.FC = () => {
   const [watch, setWatch] = React.useState<WatchById>();
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = React.useState(0);
   const { id } = useParams<{ id: string }>();
+  const images = [
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+    "/watch.jpg",
+  ];
 
   const mainInfo = React.useMemo(() => {
     if (!watch) return [];
@@ -92,6 +104,9 @@ export const InfoWatch: React.FC = () => {
       setLoading(true);
       const { data } = await axios.get(`http://127.0.0.1:8000/api/watch/${id}`);
       setWatch(data);
+      if (data.images && data.images.length > 0) {
+        setSelectedImage(0);
+      }
     } catch (err) {
       console.error(err);
       setError("Не удалось загрузить данные о часах");
@@ -112,11 +127,41 @@ export const InfoWatch: React.FC = () => {
     <div className="mx-4">
       <div className="container pt-10">
         <div className="flex flex-col md:flex-row gap-10">
-          <img
-            src="/watch.jpg"
-            alt="watch photo"
-            className="max-w-xl rounded-2xl w-full"
-          />
+          <div className="flex flex-row md:flex-row-reverse gap-4">
+            {images && images.length > 1 && (
+              <div className="flex flex-col gap-2 overflow-y-auto max-h-[500px] pr-2">
+                {images.map((image, index) => (
+                  <button
+                    key={`image-thumb-${index}`}
+                    onClick={() => setSelectedImage(index)}
+                    className={`w-16 h-16 rounded-lg overflow-hidden border-2 cursor-pointer ${
+                      selectedImage === index
+                        ? "border-blue-500"
+                        : "border-transparent"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+            <div className="flex-1">
+              <img
+                src={
+                  images && images.length > 0
+                    ? images[selectedImage]
+                    : "/watch.jpg"
+                }
+                alt="watch photo"
+                className="max-w-xl rounded-2xl w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+
           <div className="flex-1">
             <div className="flex flex-wrap gap-2 py-6">
               {watch.aliases.map((alias, i) => (
